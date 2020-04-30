@@ -1,4 +1,5 @@
 class Echo
-  def repeat
+  def run
+   puts "Say something:"
+   input = gets.chomp
   end
-end
