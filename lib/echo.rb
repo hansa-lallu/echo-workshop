@@ -20,6 +20,8 @@ class Echo
       if @input == 'exit'
         print 'Goodbye'
         break
+      else
+        say_something
       end
     end
   end

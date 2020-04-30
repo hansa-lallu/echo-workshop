@@ -25,9 +25,12 @@ describe Echo do
 
   describe '#run' do 
     it 'continues to prompt user for input ' do
+      time = Time.new(2020, 0o4, 30, 20, 45, 2, '+00:00')
+      allow(Time).to receive(:now).and_return(time)
+
       allow(STDIN).to receive(:gets).and_return('Hello, World')
       allow(echo).to receive(:loop).and_yield
-      expect { echo.run }.to output('Say something: ').to_stdout
+      expect { echo.run }.to output("Say something: 2020-04-30 | 20:45 | You said: 'Hello, World'!\n").to_stdout
     end 
   end
 end 
