@@ -32,6 +32,13 @@ describe Echo do
       allow(echo).to receive(:loop).and_yield
       expect { echo.run }.to output("Say something: 2020-04-30 | 20:45 | You said: 'Hello, World'!\n").to_stdout
     end 
+
+    it 'stops the app when user enters exit' do
+      time = Time.new(2020, 0o4, 30, 20, 45, 2, '+00:00')
+      allow(Time).to receive(:now).and_return(time)
+      allow(STDIN).to receive(:gets).and_return('exit')
+      expect { echo.run }.to output("Say something: Goodbye").to_stdout
+    end 
   end
 end 
 
