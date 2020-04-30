@@ -13,6 +13,14 @@ describe Echo do
       allow(STDIN).to receive(:gets).and_return('Hello World')
       expect(echo.input).to eq('Hello World')
     end
+
+    it 'outputs the phrase and time entered' do
+      time = Time.new(2020, 0o4, 30, 20, 45, 2, '+00:00')
+      allow(Time).to receive(:now).and_return(time)
+      allow(STDIN).to receive(:gets).and_return('Hello, World')
+      echo.input
+      expect { echo.say_something }.to output("2020-04-30 | 20:45 | You said: 'Hello, World'!\n").to_stdout
+    end
   end
 
   describe '#run' do 

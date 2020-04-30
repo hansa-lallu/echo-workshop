@@ -1,4 +1,10 @@
 class Echo
+
+  def say_something
+    time = Time.now.strftime('%Y-%m-%d | %H:%M |')
+    print "#{time} You said: '#{@input}'!\n"
+  end
+
   def prompt
     print "Say something: "
   end
