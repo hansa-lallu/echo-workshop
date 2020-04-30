@@ -1,5 +1,7 @@
 class Echo
-  def run
-   puts "Say something:"
-   input = gets.chomp
+  def prompt
+    print "Say something: "
   end
+end 
+
+

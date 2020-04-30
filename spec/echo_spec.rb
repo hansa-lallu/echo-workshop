@@ -1,10 +1,10 @@
 require 'echo'
 
 describe Echo do
-  describe '#repeat' do
-    it 'takes a user input' do
-      allow_any_instance_of(Echo).to receive(:gets).and_return('hello world')
-      expect(subject.run).to eq('hello world')
+  subject(:echo) { described_class.new }
+  describe '#prompt' do
+    it 'prompts a user to say something' do
+      expect { echo.prompt }.to output('Say something: ').to_stdout
     end
   end
 end 
